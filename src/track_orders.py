@@ -8,7 +8,7 @@ class TrackOrders:
     # aqui deve expor a quantidade de estoque
     def __len__(self):
         return len(self.__orders)
-    
+
     def __orders_to_dict(self):
         order_dict = {}
         for name, meal, day in self.__orders:
@@ -48,7 +48,7 @@ class TrackOrders:
         visited_days = self.__dict_orders[customer]["days"]
         never_came_on = self.working_days.difference(visited_days)
         return never_came_on
-    
+
     def __days_balance(self):
         balance = dict()
         for _, _, day in self.__orders:
