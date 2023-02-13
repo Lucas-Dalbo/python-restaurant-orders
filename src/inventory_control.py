@@ -46,3 +46,16 @@ class InventoryControl:
             else:
                 to_buy[item] = 0
         return to_buy
+
+    def get_available_dishes(self):
+        dishes = set()
+        for dish, ingr in self.INGREDIENTS.items():
+            is_avaliable = True
+            for i in ingr:
+                if self.invetory[i] < 1:
+                    is_avaliable = False
+                    break
+            else:
+                if is_avaliable:
+                    dishes.add(dish)
+        return dishes
