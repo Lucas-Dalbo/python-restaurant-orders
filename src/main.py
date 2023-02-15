@@ -5,9 +5,13 @@ from track_orders import TrackOrders
 
 
 def print_info(tracker, control):
+    print('\nPrato favorito de Maria:')
     print(tracker.get_most_ordered_dish_per_customer('maria'))
+    print('\nPratos nunca pedidos por João:')
     print(tracker.get_never_ordered_per_customer('joao'))
+    print('\nDias nunca visitados por João:')
     print(tracker.get_days_never_visited_per_customer('joao'))
+    print('\nIngredientes para comprar:')
     print(control.get_quantities_to_buy())
 
 
@@ -21,6 +25,8 @@ def main():
 
     for sub in subs:
         pub.subscribe(sub, topic)
+
+    print(f'Analizando pedidos de {path}.')
 
     with open(path) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
